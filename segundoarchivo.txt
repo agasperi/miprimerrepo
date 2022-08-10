@@ -1,2 +1,5 @@
 cambie de idea
+modificación desde github
+ocasionando conflicto
+esto está listo
 nuevo cambio
