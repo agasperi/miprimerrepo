@@ -1,0 +1,738 @@
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git checkout -b creando_problemas
+Switched to a new branch 'creando_problemas'
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (creando_problemas)
+$ git status
+On branch creando_problemas
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   miprimerarchivo.txt
+        modified:   otroarchivito.txt
+        modified:   unomas.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (creando_problemas)
+$ git commit -am "Buscando problemas"
+[creando_problemas 5c5e901] Buscando problemas
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (creando_problemas)
+$ git checkout master
+Switched to branch 'master'
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git checkout -b generando_conflictos
+Switched to a new branch 'generando_conflictos'
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (generando_conflictos)
+$ git status
+On branch generando_conflictos
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   miprimerarchivo.txt
+        modified:   otroarchivito.txt
+        modified:   unomas.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (generando_conflictos)
+$ git commit -am "Conflictos, conflictos"
+[generando_conflictos cfeff28] Conflictos, conflictos
+ 3 files changed, 12 insertions(+), 5 deletions(-)
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (generando_conflictos)
+$ git checkout master
+Switched to branch 'master'
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git branch
+  creando_problemas
+  generando_conflictos
+* master
+  miprimerarama
+  ramahija_miprimerarama
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git log --oneline
+4fee461 (HEAD -> master) Merge branch 'ramahija_miprimerarama'
+ebd42c3 (ramahija_miprimerarama) Modificando a unomas.txt
+568f3c1 (miprimerarama) Primer commit de rama
+90d61ab Mi tercer commit
+d8ce40e Mi segundo commit
+5d22812 Mi primer commit
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git log --graph --oneline
+*   4fee461 (HEAD -> master) Merge branch 'ramahija_miprimerarama'
+|\
+| * ebd42c3 (ramahija_miprimerarama) Modificando a unomas.txt
+|/
+* 568f3c1 (miprimerarama) Primer commit de rama
+* 90d61ab Mi tercer commit
+* d8ce40e Mi segundo commit
+* 5d22812 Mi primer commit
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git checkout creando_problemas
+Switched to branch 'creando_problemas'
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (creando_problemas)
+$ git log --graph --oneline
+* 5c5e901 (HEAD -> creando_problemas) Buscando problemas
+*   4fee461 (master) Merge branch 'ramahija_miprimerarama'
+|\
+| * ebd42c3 (ramahija_miprimerarama) Modificando a unomas.txt
+|/
+* 568f3c1 (miprimerarama) Primer commit de rama
+* 90d61ab Mi tercer commit
+* d8ce40e Mi segundo commit
+* 5d22812 Mi primer commit
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (creando_problemas)
+$ git checkout generando_conflictos
+Switched to branch 'generando_conflictos'
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (generando_conflictos)
+$ git log --graph --oneline
+* cfeff28 (HEAD -> generando_conflictos) Conflictos, conflictos
+*   4fee461 (master) Merge branch 'ramahija_miprimerarama'
+|\
+| * ebd42c3 (ramahija_miprimerarama) Modificando a unomas.txt
+|/
+* 568f3c1 (miprimerarama) Primer commit de rama
+* 90d61ab Mi tercer commit
+* d8ce40e Mi segundo commit
+* 5d22812 Mi primer commit
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (generando_conflictos)
+$ git checkout master
+Switched to branch 'master'
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git merge creando_problemas --no-ff
+Merge made by the 'ort' strategy.
+ miprimerarchivo.txt | 4 ++--
+ otroarchivito.txt   | 4 ++--
+ unomas.txt          | 4 ++--
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git log --graph
+*   commit 400d173271469a8494845efdea7d509e5458a262 (HEAD -> master)
+|\  Merge: 4fee461 5c5e901
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:40:52 2024 -0500
+| |
+| |     Merge branch 'creando_problemas'
+| |
+| * commit 5c5e90106b22f87be24c127113dda2cdc7f7e3ce (creando_problemas)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:35:22 2024 -0500
+|
+|       Buscando problemas
+|
+*   commit 4fee4618b99a83994e8031bae3818a30b06d58b6
+|\  Merge: 568f3c1 ebd42c3
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:29:40 2024 -0500
+| |
+| |     Merge branch 'ramahija_miprimerarama'
+| |
+| * commit ebd42c360c4a16fb971a9426c26bfb2b6b318744 (ramahija_miprimerarama)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:17:52 2024 -0500
+|
+|       Modificando a unomas.txt
+|
+* commit 568f3c1cc8ca64682e5eaf0bb587986eeb9505e7 (miprimerarama)
+| Author: Arnoldo Gásperi <agasperi@gmail.com>
+| Date:   Thu Jul 11 08:13:24 2024 -0500
+|
+|     Primer commit de rama
+|
+* commit 90d61ab9dbc50e9789dcc536398a4c802b59792b
+:...skipping...
+*   commit 400d173271469a8494845efdea7d509e5458a262 (HEAD -> master)
+|\  Merge: 4fee461 5c5e901
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:40:52 2024 -0500
+| |
+| |     Merge branch 'creando_problemas'
+| |
+| * commit 5c5e90106b22f87be24c127113dda2cdc7f7e3ce (creando_problemas)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:35:22 2024 -0500
+|
+|       Buscando problemas
+|
+*   commit 4fee4618b99a83994e8031bae3818a30b06d58b6
+|\  Merge: 568f3c1 ebd42c3
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:29:40 2024 -0500
+| |
+| |     Merge branch 'ramahija_miprimerarama'
+| |
+| * commit ebd42c360c4a16fb971a9426c26bfb2b6b318744 (ramahija_miprimerarama)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:17:52 2024 -0500
+|
+|       Modificando a unomas.txt
+|
+* commit 568f3c1cc8ca64682e5eaf0bb587986eeb9505e7 (miprimerarama)
+| Author: Arnoldo Gásperi <agasperi@gmail.com>
+| Date:   Thu Jul 11 08:13:24 2024 -0500
+|
+|     Primer commit de rama
+|
+* commit 90d61ab9dbc50e9789dcc536398a4c802b59792b
+| Author: Pepe Trueno <agasperi@outlook.com>
+| Date:   Thu Jul 11 07:56:15 2024 -0500
+|
+|     Mi tercer commit
+|
+* commit d8ce40e78bfa89e4158d275afcacb3904ddd941b
+| Author: Arnoldo Gasperi <agasperi@gmail.com>
+| Date:   Thu Jul 11 07:45:54 2024 -0500
+:...skipping...
+*   commit 400d173271469a8494845efdea7d509e5458a262 (HEAD -> master)
+|\  Merge: 4fee461 5c5e901
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:40:52 2024 -0500
+| |
+| |     Merge branch 'creando_problemas'
+| |
+| * commit 5c5e90106b22f87be24c127113dda2cdc7f7e3ce (creando_problemas)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:35:22 2024 -0500
+|
+|       Buscando problemas
+|
+*   commit 4fee4618b99a83994e8031bae3818a30b06d58b6
+|\  Merge: 568f3c1 ebd42c3
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:29:40 2024 -0500
+| |
+| |     Merge branch 'ramahija_miprimerarama'
+| |
+| * commit ebd42c360c4a16fb971a9426c26bfb2b6b318744 (ramahija_miprimerarama)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:17:52 2024 -0500
+|
+|       Modificando a unomas.txt
+|
+* commit 568f3c1cc8ca64682e5eaf0bb587986eeb9505e7 (miprimerarama)
+| Author: Arnoldo Gásperi <agasperi@gmail.com>
+| Date:   Thu Jul 11 08:13:24 2024 -0500
+|
+|     Primer commit de rama
+|
+* commit 90d61ab9dbc50e9789dcc536398a4c802b59792b
+| Author: Pepe Trueno <agasperi@outlook.com>
+| Date:   Thu Jul 11 07:56:15 2024 -0500
+|
+|     Mi tercer commit
+|
+* commit d8ce40e78bfa89e4158d275afcacb3904ddd941b
+| Author: Arnoldo Gasperi <agasperi@gmail.com>
+| Date:   Thu Jul 11 07:45:54 2024 -0500
+|
+|     Mi segundo commit
+|
+* commit 5d22812542fcf98865876b6138cac634869d787a
+  Author: Arnoldo Gasperi <agasperi@gmail.com>
+  Date:   Thu Jul 11 07:39:43 2024 -0500
+
+      Mi primer commit
+
+      Agregando mi primer archivo.
+~
+~
+~
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git log --graph
+*   commit 400d173271469a8494845efdea7d509e5458a262 (HEAD -> master)
+|\  Merge: 4fee461 5c5e901
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:40:52 2024 -0500
+| |
+| |     Merge branch 'creando_problemas'
+| |
+| * commit 5c5e90106b22f87be24c127113dda2cdc7f7e3ce (creando_problemas)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:35:22 2024 -0500
+|
+|       Buscando problemas
+|
+*   commit 4fee4618b99a83994e8031bae3818a30b06d58b6
+|\  Merge: 568f3c1 ebd42c3
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:29:40 2024 -0500
+| |
+| |     Merge branch 'ramahija_miprimerarama'
+| |
+| * commit ebd42c360c4a16fb971a9426c26bfb2b6b318744 (ramahija_miprimerarama)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:17:52 2024 -0500
+|
+|       Modificando a unomas.txt
+|
+* commit 568f3c1cc8ca64682e5eaf0bb587986eeb9505e7 (miprimerarama)
+| Author: Arnoldo Gásperi <agasperi@gmail.com>
+| Date:   Thu Jul 11 08:13:24 2024 -0500
+|
+|     Primer commit de rama
+|
+* commit 90d61ab9dbc50e9789dcc536398a4c802b59792b
+| Author: Pepe Trueno <agasperi@outlook.com>
+| Date:   Thu Jul 11 07:56:15 2024 -0500
+|
+|     Mi tercer commit
+|
+* commit d8ce40e78bfa89e4158d275afcacb3904ddd941b
+| Author: Arnoldo Gasperi <agasperi@gmail.com>
+| Date:   Thu Jul 11 07:45:54 2024 -0500
+|
+|     Mi segundo commit
+|
+* commit 5d22812542fcf98865876b6138cac634869d787a
+  Author: Arnoldo Gasperi <agasperi@gmail.com>
+  Date:   Thu Jul 11 07:39:43 2024 -0500
+
+      Mi primer commit
+
+      Agregando mi primer archivo.
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git log
+commit 400d173271469a8494845efdea7d509e5458a262 (HEAD -> master)
+Merge: 4fee461 5c5e901
+Author: Arnoldo Gásperi <agasperi@gmail.com>
+Date:   Thu Jul 11 08:40:52 2024 -0500
+
+commit 400d173271469a8494845efdea7d509e5458a262 (HEAD -> master)
+Merge: 4fee461 5c5e901
+Author: Arnoldo Gásperi <agasperi@gmail.com>
+Date:   Thu Jul 11 08:40:52 2024 -0500
+
+    Merge branch 'creando_problemas'
+
+    Merge branch 'creando_problemas'
+
+commit 5c5e90106b22f87be24c127113dda2cdc7f7e3ce (creando_problemas)
+Author: Arnoldo Gásperi <agasperi@gmail.com>
+Date:   Thu Jul 11 08:35:22 2024 -0500
+
+    Buscando problemas
+
+commit 4fee4618b99a83994e8031bae3818a30b06d58b6
+Merge: 568f3c1 ebd42c3
+Author: Arnoldo Gásperi <agasperi@gmail.com>
+Date:   Thu Jul 11 08:29:40 2024 -0500
+
+    Merge branch 'ramahija_miprimerarama'
+
+commit ebd42c360c4a16fb971a9426c26bfb2b6b318744 (ramahija_miprimerarama)
+Author: Arnoldo Gásperi <agasperi@gmail.com>
+Date:   Thu Jul 11 08:17:52 2024 -0500
+
+    Modificando a unomas.txt
+
+commit 568f3c1cc8ca64682e5eaf0bb587986eeb9505e7 (miprimerarama)
+Author: Arnoldo Gásperi <agasperi@gmail.com>
+Date:   Thu Jul 11 08:13:24 2024 -0500
+
+    Primer commit de rama
+
+commit 90d61ab9dbc50e9789dcc536398a4c802b59792b
+Author: Pepe Trueno <agasperi@outlook.com>
+Date:   Thu Jul 11 07:56:15 2024 -0500
+
+    Mi tercer commit
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git log --graph
+*   commit 400d173271469a8494845efdea7d509e5458a262 (HEAD -> master)
+|\  Merge: 4fee461 5c5e901
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:40:52 2024 -0500
+| |
+| |     Merge branch 'creando_problemas'
+| |
+| * commit 5c5e90106b22f87be24c127113dda2cdc7f7e3ce (creando_problemas)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:35:22 2024 -0500
+|
+|       Buscando problemas
+|
+*   commit 4fee4618b99a83994e8031bae3818a30b06d58b6
+|\  Merge: 568f3c1 ebd42c3
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:29:40 2024 -0500
+| |
+| |     Merge branch 'ramahija_miprimerarama'
+| |
+| * commit ebd42c360c4a16fb971a9426c26bfb2b6b318744 (ramahija_miprimerarama)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:17:52 2024 -0500
+|
+|       Modificando a unomas.txt
+|
+* commit 568f3c1cc8ca64682e5eaf0bb587986eeb9505e7 (miprimerarama)
+| Author: Arnoldo Gásperi <agasperi@gmail.com>
+| Date:   Thu Jul 11 08:13:24 2024 -0500
+|
+|     Primer commit de rama
+|
+* commit 90d61ab9dbc50e9789dcc536398a4c802b59792b
+| Author: Pepe Trueno <agasperi@outlook.com>
+| Date:   Thu Jul 11 07:56:15 2024 -0500
+|
+|     Mi tercer commit
+|
+* commit d8ce40e78bfa89e4158d275afcacb3904ddd941b
+| Author: Arnoldo Gasperi <agasperi@gmail.com>
+| Date:   Thu Jul 11 07:45:54 2024 -0500
+|
+|     Mi segundo commit
+|
+* commit 5d22812542fcf98865876b6138cac634869d787a
+  Author: Arnoldo Gasperi <agasperi@gmail.com>
+  Date:   Thu Jul 11 07:39:43 2024 -0500
+
+      Mi primer commit
+
+      Agregando mi primer archivo.
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git branch
+  creando_problemas
+  generando_conflictos
+* master
+  miprimerarama
+  ramahija_miprimerarama
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git merge generando_conflictos --no-ff
+Auto-merging miprimerarchivo.txt
+CONFLICT (content): Merge conflict in miprimerarchivo.txt
+Auto-merging otroarchivito.txt
+CONFLICT (content): Merge conflict in otroarchivito.txt
+Auto-merging unomas.txt
+CONFLICT (content): Merge conflict in unomas.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   miprimerarchivo.txt
+        both modified:   otroarchivito.txt
+        both modified:   unomas.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master|MERGING)
+$ git log --graph
+*   commit 400d173271469a8494845efdea7d509e5458a262 (HEAD -> master)
+|\  Merge: 4fee461 5c5e901
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:40:52 2024 -0500
+| |
+| |     Merge branch 'creando_problemas'
+| |
+| * commit 5c5e90106b22f87be24c127113dda2cdc7f7e3ce (creando_problemas)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:35:22 2024 -0500
+|
+|       Buscando problemas
+|
+*   commit 4fee4618b99a83994e8031bae3818a30b06d58b6
+|\  Merge: 568f3c1 ebd42c3
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:29:40 2024 -0500
+| |
+| |     Merge branch 'ramahija_miprimerarama'
+| |
+| * commit ebd42c360c4a16fb971a9426c26bfb2b6b318744 (ramahija_miprimerarama)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:17:52 2024 -0500
+|
+|       Modificando a unomas.txt
+|
+* commit 568f3c1cc8ca64682e5eaf0bb587986eeb9505e7 (miprimerarama)
+| Author: Arnoldo Gásperi <agasperi@gmail.com>
+| Date:   Thu Jul 11 08:13:24 2024 -0500
+|
+|     Primer commit de rama
+|
+* commit 90d61ab9dbc50e9789dcc536398a4c802b59792b
+Finishing logfile... (interrupt to abort)
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   miprimerarchivo.txt
+        both modified:   otroarchivito.txt
+        both modified:   unomas.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        q
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master|MERGING)
+$ rm q
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   miprimerarchivo.txt
+        both modified:   otroarchivito.txt
+        both modified:   unomas.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master|MERGING)
+$ git add unomas.txt
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Changes to be committed:
+        modified:   unomas.txt
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   miprimerarchivo.txt
+        both modified:   otroarchivito.txt
+
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master|MERGING)
+$ git add otroarchivito.txt
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Changes to be committed:
+        modified:   otroarchivito.txt
+        modified:   unomas.txt
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   miprimerarchivo.txt
+
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master|MERGING)
+$ git add miprimerarchivo.txt
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master|MERGING)
+$ git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   miprimerarchivo.txt
+        modified:   otroarchivito.txt
+        modified:   unomas.txt
+
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master|MERGING)
+$ git commit
+[master 7633a13] Merge branch 'generando_conflictos'
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git log --graph
+*   commit 7633a134c2ea374eff37fb80d767485dd2ae2d41 (HEAD -> master)
+|\  Merge: 400d173 cfeff28
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:50:59 2024 -0500
+| |
+| |     Merge branch 'generando_conflictos'
+| |
+| |      Conflicts:
+| |             miprimerarchivo.txt
+| |             otroarchivito.txt
+| |             unomas.txt
+| |
+| * commit cfeff28187bb4d69210bf0e4908efe18f7667731 (generando_conflictos)
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:37:41 2024 -0500
+| |
+| |     Conflictos, conflictos
+| |
+* |   commit 400d173271469a8494845efdea7d509e5458a262
+|\ \  Merge: 4fee461 5c5e901
+| |/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|/|   Date:   Thu Jul 11 08:40:52 2024 -0500
+| |
+| |       Merge branch 'creando_problemas'
+| |
+| * commit 5c5e90106b22f87be24c127113dda2cdc7f7e3ce (creando_problemas)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:35:22 2024 -0500
+|
+|       Buscando problemas
+|
+*   commit 4fee4618b99a83994e8031bae3818a30b06d58b6
+|\  Merge: 568f3c1 ebd42c3
+:...skipping...
+*   commit 7633a134c2ea374eff37fb80d767485dd2ae2d41 (HEAD -> master)
+|\  Merge: 400d173 cfeff28
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:50:59 2024 -0500
+| |
+| |     Merge branch 'generando_conflictos'
+| |
+| |      Conflicts:
+| |             miprimerarchivo.txt
+| |             otroarchivito.txt
+| |             unomas.txt
+| |
+| * commit cfeff28187bb4d69210bf0e4908efe18f7667731 (generando_conflictos)
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:37:41 2024 -0500
+| |
+| |     Conflictos, conflictos
+| |
+* |   commit 400d173271469a8494845efdea7d509e5458a262
+|\ \  Merge: 4fee461 5c5e901
+| |/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|/|   Date:   Thu Jul 11 08:40:52 2024 -0500
+| |
+| |       Merge branch 'creando_problemas'
+| |
+| * commit 5c5e90106b22f87be24c127113dda2cdc7f7e3ce (creando_problemas)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:35:22 2024 -0500
+|
+|       Buscando problemas
+|
+*   commit 4fee4618b99a83994e8031bae3818a30b06d58b6
+|\  Merge: 568f3c1 ebd42c3
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:29:40 2024 -0500
+| |
+| |     Merge branch 'ramahija_miprimerarama'
+| |
+| * commit ebd42c360c4a16fb971a9426c26bfb2b6b318744 (ramahija_miprimerarama)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:17:52 2024 -0500
+|
+|       Modificando a unomas.txt
+|
+* commit 568f3c1cc8ca64682e5eaf0bb587986eeb9505e7 (miprimerarama)
+| Author: Arnoldo Gásperi <agasperi@gmail.com>
+| Date:   Thu Jul 11 08:13:24 2024 -0500
+|
+|     Primer commit de rama
+|
+* commit 90d61ab9dbc50e9789dcc536398a4c802b59792b
+| Author: Pepe Trueno <agasperi@outlook.com>
+| Date:   Thu Jul 11 07:56:15 2024 -0500
+|
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$ git log --graph
+*   commit 7633a134c2ea374eff37fb80d767485dd2ae2d41 (HEAD -> master)
+|\  Merge: 400d173 cfeff28
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+*   commit 7633a134c2ea374eff37fb80d767485dd2ae2d41 (HEAD -> master)
+|\  Merge: 400d173 cfeff28
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:50:59 2024 -0500
+| |
+| |     Merge branch 'generando_conflictos'
+| |
+| |      Conflicts:
+| |             miprimerarchivo.txt
+| |             otroarchivito.txt
+| |             unomas.txt
+| |
+| * commit cfeff28187bb4d69210bf0e4908efe18f7667731 (generando_conflictos)
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:37:41 2024 -0500
+| |
+| |     Conflictos, conflictos
+| |
+* |   commit 400d173271469a8494845efdea7d509e5458a262
+|\ \  Merge: 4fee461 5c5e901
+| |/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|/|   Date:   Thu Jul 11 08:40:52 2024 -0500
+| |
+| |       Merge branch 'creando_problemas'
+| |
+| * commit 5c5e90106b22f87be24c127113dda2cdc7f7e3ce (creando_problemas)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:35:22 2024 -0500
+|
+|       Buscando problemas
+|
+*   commit 4fee4618b99a83994e8031bae3818a30b06d58b6
+|\  Merge: 568f3c1 ebd42c3
+| | Author: Arnoldo Gásperi <agasperi@gmail.com>
+| | Date:   Thu Jul 11 08:29:40 2024 -0500
+| |
+| |     Merge branch 'ramahija_miprimerarama'
+| |
+| * commit ebd42c360c4a16fb971a9426c26bfb2b6b318744 (ramahija_miprimerarama)
+|/  Author: Arnoldo Gásperi <agasperi@gmail.com>
+|   Date:   Thu Jul 11 08:17:52 2024 -0500
+|
+|       Modificando a unomas.txt
+|
+* commit 568f3c1cc8ca64682e5eaf0bb587986eeb9505e7 (miprimerarama)
+| Author: Arnoldo Gásperi <agasperi@gmail.com>
+| Date:   Thu Jul 11 08:13:24 2024 -0500
+|
+|     Primer commit de rama
+|
+* commit 90d61ab9dbc50e9789dcc536398a4c802b59792b
+| Author: Pepe Trueno <agasperi@outlook.com>
+| Date:   Thu Jul 11 07:56:15 2024 -0500
+|
+
+Usuario@SDF1 MINGW64 ~/Desktop/Bootcamp Git/miprimerrepo (master)
+$
